@@ -2,18 +2,14 @@ require_relative '../config'
 
 # this is where you should use an ActiveRecord migration to
 
-class CreateStudents < ActiveRecord::Migration[5.1]
+class CreateStudentTeachers < ActiveRecord::Migration[5.1]
   def change
     # HINT: checkout ActiveRecord::Migration.create_table
-    create_table :students do |t|
+    create_table :student_teachers do |t|
 
       # add columns that you would need for this table
-      t.string :first_name
-      t.string :last_name
-      t.string :gender
-      t.string :email, unique:true
-      t.string :phone
-      t.date :birthday
+      t.references :teacher, foreign_key: true
+      t.references :student, foreign_key: true
       t.timestamps
     end
   end

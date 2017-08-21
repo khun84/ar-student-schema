@@ -70,7 +70,6 @@ describe Student, "validations" do
       expect(@student).to be_valid
     end
   end
-
   it "shouldn't accept toddlers" do
     @student.assign_attributes(:birthday => Date.today - 3.years)
     expect(@student).to_not be_valid

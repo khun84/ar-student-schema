@@ -33,12 +33,21 @@ task "db:populate_teacher" do
   # Create some teachers for your teachers table in database
 end
 
+
+
 desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
+end
+desc 'Run interface'
+task "test:interface" do
+  ruby 'app/interface.rb'
 end
 
 desc "Run the specs"
 RSpec::Core::RakeTask.new(:specs)
 
 task :default  => :specs
+
+
+
